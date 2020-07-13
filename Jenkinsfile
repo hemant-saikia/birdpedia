@@ -40,7 +40,7 @@ pipeline {
                 continueOnError: false, failOnError: true,
                 publishers: [
                     sshPublisherDesc(
-                            configName: "${env.SSH_CONFIG_NAME}",
+                            configName: "Zerund",
                             verbose: true,
                             transfers: [
                             sshTransfer(
