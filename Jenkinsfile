@@ -44,10 +44,10 @@ pipeline {
                             verbose: true,
                             transfers: [
                             sshTransfer(
-                            sourceFiles: "${path_to_file}/${file_name}, ${path_to_file}/${file_name}",
-                            removePrefix: "${path_to_file}",
-                            remoteDirectory: "${remote_dir_path}",
-                            execCommand: "run commands after copy?"
+                            sourceFiles: "workspace/birdpedia ci/birdpedia",
+                            removePrefix: "workspace/birdpedia ci",
+                            remoteDirectory: "hemant",
+                            execCommand: "echo "
                         )
                     ])
                 ])
