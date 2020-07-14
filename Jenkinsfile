@@ -47,7 +47,7 @@ pipeline {
                             sourceFiles: "workspace/birdpedia ci/birdpedia",
                             removePrefix: "workspace/birdpedia ci",
                             remoteDirectory: "/",
-                            execCommand: "echo oho"
+                            execCommand: "pwd"
                         )
                     ])
                 ])
