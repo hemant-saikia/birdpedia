@@ -46,8 +46,8 @@ pipeline {
                             sshTransfer(
                             sourceFiles: "workspace/birdpedia ci/birdpedia",
                             removePrefix: "workspace/birdpedia ci",
-                            remoteDirectory: "hemant",
-                            execCommand: "echo "
+                            remoteDirectory: "/",
+                            execCommand: "echo oho"
                         )
                     ])
                 ])
