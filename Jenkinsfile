@@ -41,6 +41,7 @@ pipeline {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com uptime'
                     sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com  "date && hostname"'
                     sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com "mkdir /home/ubuntu/hemant/backup"'
+                    sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com "cp /home/ubuntu/hemant/target/testci.sh /home/ubuntu/hemant/backup/"'
                     sh 'scp /Users/hemant/testci.sh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com:/home/ubuntu/hemant/target'
                 }
             }
