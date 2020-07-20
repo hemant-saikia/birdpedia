@@ -34,31 +34,13 @@ pipeline {
                 }
             }
         }
-        stage('SSH transfer') {
-            steps {
-                sshPublisher(
-                    continueOnError: false, failOnError: true,
-                    publishers: [
-                        sshPublisherDesc(
-                                configName: "Zerund",
-                                verbose: true,
-                                transfers: [
-                                sshTransfer(
-                                sourceFiles: "workspace/birdpedia ci/birdpedia",
-                                removePrefix: "workspace/birdpedia ci",
-                                remoteDirectory: "/",
-                                execCommand: "pwd"
-                            )
-                        ])
-                    ])
-            }
-        }
+       
         stage ('Deploy') {
             steps{
                 sshagent(credentials : ['00437793-dff8-41aa-a227-66e788ab9990']) {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com uptime'
-                    sh 'ssh -v ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com'
-                    sh 'scp /Users/hemant/testci.sh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com:/home/ubuntu/test'
+                    sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com "date && hostname"'
+                    sh 'scp /Users/hemant/testci.sh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com:/home/ubuntu/hemant/target'
                 }
             }
         }
