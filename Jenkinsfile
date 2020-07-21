@@ -40,10 +40,10 @@ pipeline {
                 sshagent(credentials : ['00437793-dff8-41aa-a227-66e788ab9990']) {
                     sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com uptime'
                     sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com  "date && hostname"'
-                    
-                    sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com "cp /home/ubuntu/hemant/target/testci.sh /home/ubuntu/hemant/backup/"'
-        
-                    sh 'scp /Users/hemant/testci.sh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com:/home/ubuntu/hemant/target'
+		    sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com "cp /home/ubuntu/hemant/asterisk/asterisk-ari /home/ubuntu/hemant/backup/asterisk_ari_$(date +"%Y_%m_%d_%I_%M_%p")"'
+                    sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com  "sudo systemctl stop asterisk-ari"'
+                    sh 'scp birdpedia ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com:/home/ubuntu/hemant/asterisk/asterisk-ari'
+		    sh 'ssh ubuntu@ec2-3-6-77-14.ap-south-1.compute.amazonaws.com  "sudo systemctl start asterisk-ari"'
                 }
             }
         }
