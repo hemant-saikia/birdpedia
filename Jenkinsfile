@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compiling and building'
-                sh 'go build'
+                sh 'env GOOS=linux GOARCH=arm go build'
             }
         }
 
