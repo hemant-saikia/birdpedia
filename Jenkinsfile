@@ -12,6 +12,7 @@ pipeline {
         stage('Pre Test') {
             steps {
                 echo 'Installing dependencies'
+                echo "${GOPATH}"
                 sh 'go version'
                 sh 'go get -d ./'
             }
